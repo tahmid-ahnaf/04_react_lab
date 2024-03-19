@@ -8,7 +8,6 @@ function App() {
   const [openModal, setOpenModal] = useState(false);
 
   const handleTasksModal = () => {
-    console.log("button clicked");
     setOpenModal(true);
   };
 
@@ -25,6 +24,12 @@ function App() {
   const deleteTask = (idx) =>{
     const remainingTasks = tasks.filter(taskItem=>tasks.indexOf(taskItem)!=idx);
     setTasks(remainingTasks);
+  }
+
+  const editTask = (editedTask, idx) =>{
+    let tempTask = [...tasks];
+    tempTask[idx] = editedTask;
+    setTasks(tempTask);
   } 
   return (
     <div className="max-w-[80%] bg-slate-400 mx-auto min-h-[80vh] flex flex-col items-center border-2 mt-8">
@@ -36,11 +41,10 @@ function App() {
         Add a new task
       </button>
 
-      <Tasks tasks={tasks} deleteTask = {deleteTask}></Tasks>
+      <Tasks tasks={tasks} editTask={editTask} deleteTask = {deleteTask}></Tasks>
 
       {<ModalComponent openModal={openModal} closeModal={closeModal} saveTasks={saveTasks}  ></ModalComponent>}
     </div>
   );
 }
-
 export default App;

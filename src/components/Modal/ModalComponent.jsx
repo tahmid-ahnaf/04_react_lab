@@ -1,7 +1,8 @@
 import { Button, Modal, Label, TextInput } from "flowbite-react";
 import { useState } from "react";
+import PropTypes from 'prop-types';
 
-const ModalComponent = ({openModal, closeModal,saveTasks,deleteTask}) => {
+const ModalComponent = ({openModal, closeModal,saveTasks}) => {
 
   const [taskTitle, setTaskTitle] = useState("");
   const [taskDescription, setTaskDescription] = useState("");
@@ -55,4 +56,10 @@ const ModalComponent = ({openModal, closeModal,saveTasks,deleteTask}) => {
   );
 };
 
+ModalComponent.propTypes = {
+  openModal: PropTypes.bool,
+  closeModal: PropTypes.func,
+  saveTasks: PropTypes.func,
+  deleteTask:PropTypes.func
+}
 export default ModalComponent;
