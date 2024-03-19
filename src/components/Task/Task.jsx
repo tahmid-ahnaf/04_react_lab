@@ -16,13 +16,13 @@ const Task = ({index, task, editTask, deleteTask}) => {
   }
   return (
     <div>
-    <Card href="#" className="max-w-sm">
+    <Card className="w-fit">
       <h5 className="text-2xl font-bold tracking-tight text-gray-900 ">
         {title}
       </h5>
       <p className="font-normal text-gray-700 ">{description}</p>
 
-      <div className="flex gap-4">
+      <div className=" flex lg:flex-row flex-col gap-4">
         <Button color="success" onClick={handleTasksModal}>Edit</Button>
         <Button color="failure" onClick={()=>deleteTask(index)}> <RiDeleteBin6Line className="mr-2" /> Delete</Button>
       </div>

@@ -47,9 +47,10 @@ const TextBoxes = () => {
         Add Text Box To Sum Numbers
       </Button>
       {textboxes.map((value, index) => (
-        <div key={index} className="flex gap-4">
+        <div key={index} className="flex lg:flex-row flex-col gap-4 items-center justify-center">
           <TextInput
             type="text"
+            
             placeholder="Enter a number"
             value={value}
             onChange={(e) => handleTextboxChange(e.target.value, index)}
@@ -57,7 +58,7 @@ const TextBoxes = () => {
           <Button color="failure" onClick={() => deleteTextbox(index)}>
           <RiDeleteBin6Line className="mr-2" /> Delete
           </Button>
-          {warnings[index] && <div className="warning">{warnings[index]}</div>}
+          {warnings[index] && <div className="warning text-white text-xl">{warnings[index]}</div>}
         </div>
       ))}
       <div className="px-5 py-3 rounded-lg bg-gray-700 text-white text-xl w-fit">Sum: {sum}</div>
