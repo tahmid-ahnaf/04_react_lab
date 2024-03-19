@@ -2,8 +2,7 @@ import { Card, Button } from "flowbite-react";
 import PropTypes from "prop-types";
 import EditModalComponent from "../Modal/EditModalComponent";
 import { useState } from "react";
-
-
+import { RiDeleteBin6Line } from "react-icons/ri";
 const Task = ({index, task, editTask, deleteTask}) => {
   const { title, description } = task;
   const [openModal, setOpenModal] = useState(false);
@@ -25,7 +24,7 @@ const Task = ({index, task, editTask, deleteTask}) => {
 
       <div className="flex gap-4">
         <Button color="success" onClick={handleTasksModal}>Edit</Button>
-        <Button color="failure" onClick={()=>deleteTask(index)}>Delete</Button>
+        <Button color="failure" onClick={()=>deleteTask(index)}> <RiDeleteBin6Line className="mr-2" /> Delete</Button>
       </div>
     </Card>
 
